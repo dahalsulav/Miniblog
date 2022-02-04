@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from blogs.models import Post
 
@@ -15,3 +16,9 @@ def blogdetails(request,id):
         'blogdetails':singlepost
     }
     return render(request, "blogs/blogdetails.html",context)
+
+def deleteblog(request,id):
+    singlepost = Post.objects.get(id=id)
+    singlepost.delete()
+    return HttpResponseRedirect('/blogs/')
+
