@@ -1,0 +1,2 @@
+# Miniblog
+# Created Using Django
